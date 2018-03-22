@@ -48,7 +48,7 @@ Use shell script to deploy Gitlab and Jenkins. Jenkins system configuration shou
 1. Create AWS account if needed and login to [AWS Console](https://aws.amazon.com/console/)
 2. Open [Amazon S3](https://s3.console.aws.amazon.com/s3) and click `+ Create bucket`
 3. Enter the *Bucket name* and *Region* and continue the instruction until the bucket is created
-4. Edit `aws/variable.tf` and `sl/variable.tf` file. Update the `s3_bucket` and `s3_region` default value to the bucket name and region you created
+4. Edit `aws/backend.tf` and `sl/backend.tf` file. Update the `bucket` and `region` value to the bucket name and region you created
 
 ## DevOps Showcase
 1. Clone this repository
