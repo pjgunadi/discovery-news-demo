@@ -12,7 +12,7 @@
 5. Install [Helm Client](https://github.com/kubernetes/helm)
 6. Deploy Gitlab and Jenkins
    Choose one of the following methods:
-   - [Step by Step](https://github.ibm.com/icp-ap/DevOps/tree/master/jenkins-gitlab) in ICP Cluster
+   - [Step by Step](https://github.com/pjgunadi/icp-jenkins-gitlab) in ICP Cluster
    - Use script from the instructions provided in Deployment steps
 
 ## Create Discovery News Service
@@ -40,7 +40,7 @@ Use shell script to deploy Gitlab and Jenkins. Jenkins system configuration shou
    - Change the *Access Control* **Security Realm** value to `Jenkins' own user database`
    - Save and logout
    - Open the `Create an account` link and create your Jenkins account as defined in `.env.setupci`
-7. Configure Jenkins as described in [Gitlab integration]((https://github.ibm.com/icp-ap/DevOps/tree/master/jenkins-gitlab))
+7. Configure Jenkins as described in [Gitlab integration](https://github.com/pjgunadi/icp-jenkins-gitlab)
 
 8. Execute `setup_jenkins.sh` to create Pipeline and required credentials in Jenkins.
 
