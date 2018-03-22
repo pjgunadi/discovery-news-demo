@@ -1,0 +1,7 @@
+<com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl plugin="credentials@2.1.16">
+  <scope>GLOBAL</scope>
+  <id>cf_login</id>
+  <description>CF Credential</description>
+  <username>cfadmin</username>
+  <password>REPLACEME</password>
+</com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl>

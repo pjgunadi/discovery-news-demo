@@ -1,0 +1,9 @@
+require 'dotenv'
+Dotenv.load
+
+require "citasks"
+
+desc "rebuild"
+task :rebuild do
+  sh %Q(cd app ; rm -rf build ;npm run build)
+end

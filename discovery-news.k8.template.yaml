@@ -1,0 +1,55 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  namespace: dev
+  name: discovery-news
+  labels:
+    app: discovery-news
+    type: jenkins-build
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: discovery-news
+    spec:
+      containers:
+      - name: discovery-news
+        image: <%= new_image %>
+        imagePullPolicy: Always
+      imagePullSecrets:
+      - name: registry-secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: dev
+  name: discovery-news
+  labels:
+    app: discovery-news
+spec:
+  type: NodePort
+  ports:
+    - port: 5000
+      targetPort: 5000
+      protocol: TCP
+      name: http
+  selector:
+    app: discovery-news
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  namespace: dev
+  name: discovery-news-ingress
+  labels:
+    app: discovery-news-ingress
+spec:
+  rules:
+    - host: k8s.myvm.io
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: discovery-news
+              servicePort: http

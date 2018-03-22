@@ -1,0 +1,7 @@
+<com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl plugin="credentials@2.1.16">
+  <scope>GLOBAL</scope>
+  <id>docker_registry</id>
+  <description>Docker registry</description>
+  <username>admin</username>
+  <password>REPLACEME</password>
+</com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl>

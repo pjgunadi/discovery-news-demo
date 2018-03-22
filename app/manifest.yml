@@ -1,0 +1,7 @@
+name: discovery-news-iccdemo
+instances: 1
+memory: 256M
+command: node server
+env:
+  DEMO_DEPLOY: 1
+

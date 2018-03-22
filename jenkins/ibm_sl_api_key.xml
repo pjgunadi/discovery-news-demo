@@ -1,0 +1,6 @@
+<org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl plugin="plain-credentials@1.4">
+  <scope>GLOBAL</scope>
+  <id>ibm_sl_api_key</id>
+  <description>Softlayer key</description>
+  <secret>REPLACEME</secret>
+</org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl>
