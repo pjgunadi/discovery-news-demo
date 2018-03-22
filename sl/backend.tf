@@ -1,8 +1,8 @@
 terraform {
   backend "s3" {
-    bucket = "${var.s3_bucket}"
+    bucket = "pgtf"
     key    = "sl-discovery-news/terraform.tfstate"
-    region = "${var.s3_region}"
+    region = "ap-southeast-1"
     acl    = "private"
   }
 }

@@ -69,11 +69,3 @@ variable "myinstance" {
 
 variable discovery_username {}
 variable discovery_password {}
-
-variable s3_bucket {
-  default = "pgtf"
-}
-
-variable s3_region {
-  default = "ap-southeast-1"
-}
