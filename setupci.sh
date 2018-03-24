@@ -97,4 +97,4 @@ git commit -m 'initial commit'
 git push -u origin master
 
 echo "Gitlab Project url: $GITLAB_PROJECT_URL_EXTERNAL"
-echo "Login to Jenkins $JENKINS_EXTERNAL_URL and manually create user $JENKINS_USER_ID and password as defined in .env.setupci"
+echo "Login to Jenkins $JENKINS_EXTERNAL_URL (admin:$JENKINS_ADMIN_PWD) and manually create user $JENKINS_USER_ID and password as defined in .env.setupci"
