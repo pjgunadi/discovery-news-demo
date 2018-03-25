@@ -6,6 +6,9 @@ echo "1" | bx pr login -a $ICP_URL -u $ICP_USER -p $ICP_PWD --skip-ssl-validatio
 sleep 2
 bx pr cluster-config $CLUSTER_NAME
 
+#Jenkins Credential
+JENKINS_USER_PWD=$(kubectl get secrets $JENKINS_HELM_RELEASE -o jsonpath='{.data.jenkins-admin-password}' | base64 -D)
+
 #Get GitLab URL
 GITLAB_URL_NODEPORT=$(kubectl get svc $GITLAB_HELM_RELEASE-gitlab-ce -o=jsonpath='{.spec.ports[?(@.name=="http")].nodePort}')
 GITLAB_EXTERNAL_URL=http://$PROXY_IP:$GITLAB_URL_NODEPORT

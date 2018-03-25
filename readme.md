@@ -31,18 +31,9 @@ Use shell script to deploy Gitlab and Jenkins. Jenkins system configuration shou
 3. If you have not deployed Jenkins and Gitlab chart, run this script: `install_charts.sh`
 4. Wait and verify the charts deployment until completed
 5. Execute `setupci.sh`. In this script you will be prompted for gitlab credential. Enter the Gitlab username and password you defined in `.env.setupci`
-6. Create Jenkins user described in `.env.setupci` manually:
-   - Login to jenkins with default `admin` user. The password can be queried from:
-   ```
-   kubectl get secrets <your-jenkins-secret> -o jsonpath='{.data.jenkins-admin-password}' | base64 -D; echo
-   ```
-   - Navigate to Jenkins > Manage Jenkins > Configure Global Security
-   - Change the *Access Control* **Security Realm** value to `Jenkins' own user database`
-   - Save and logout
-   - Open the `Create an account` link and create your Jenkins account as defined in `.env.setupci`
-7. Configure Jenkins as described in [Gitlab integration](https://github.com/pjgunadi/icp-jenkins-gitlab)
+6. Configure Jenkins as described in [Gitlab integration](https://github.com/pjgunadi/icp-jenkins-gitlab)
 
-8. Execute `setup_jenkins.sh` to create Pipeline and required credentials in Jenkins.
+7. Execute `setup_jenkins.sh` to create Pipeline and required credentials in Jenkins.
 
 ## Create AWS S3 Bucket for Public Cloud Deployment
 1. Create AWS account if needed and login to [AWS Console](https://aws.amazon.com/console/)
