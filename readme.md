@@ -28,12 +28,13 @@
 Use shell script to deploy Gitlab and Jenkins. Jenkins system configuration should be done manually from UI.
 1. Clone this repository
 2. Rename [sample.env.setupci](sample.env.setupci) to `.env.setupci` and update the variables
-3. If you have not deployed Jenkins and Gitlab chart, run this script: `install_charts.sh`
-4. Wait and verify the charts deployment until completed
-5. Execute `setupci.sh`. In this script you will be prompted for gitlab credential. Enter the Gitlab username and password you defined in `.env.setupci`
-6. Configure Jenkins as described in [Gitlab integration](https://github.com/pjgunadi/icp-jenkins-gitlab)
+3. If your not installed helm client or the version is not the same as the helm server in ICP, run this script: `install_helm.sh`
+4. If you have not deployed Jenkins and Gitlab chart, run this script: `install_gitlabce_jenkins.sh`
+5. Wait and verify the charts deployment until completed
+6. Execute `setupci.sh`. In this script you will be prompted for gitlab credential. Enter the Gitlab username and password you defined in `.env.setupci`
+7. Configure Jenkins as described in [Gitlab integration](https://github.com/pjgunadi/icp-jenkins-gitlab)
 
-7. Execute `setup_jenkins.sh` to create Pipeline and required credentials in Jenkins.
+8. Execute `setup_jenkins.sh` to create Pipeline and required credentials in Jenkins.
 
 ## Create AWS S3 Bucket for Public Cloud Deployment
 1. Create AWS account if needed and login to [AWS Console](https://aws.amazon.com/console/)
