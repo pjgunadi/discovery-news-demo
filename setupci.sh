@@ -50,7 +50,7 @@ sed -ie "s/\(^GITLAB_API_TOKEN=\).*/\1\"$GITLAB_USER_TOKEN\"/" .env || echo "GIT
 sed -ie "s#\(^JENKINS_URL=\).*#\1$JENKINS_EXTERNAL_URL#" .env || echo "JENKINS_URL=$JENKINS_EXTERNAL_URL" | tee -a .env
 sed -ie "s#\(^JENKINS_IN_CLUSTER_BASE_URL=\).*#\1$JENKINS_CLUSTER_URL#" .env || echo "JENKINS_IN_CLUSTER_BASE_URL=$JENKINS_CLUSTER_URL" | tee -a .env
 sed -ie "s/\(^JENKINS_USER=\).*/\1$JENKINS_USER_ID/" .env || echo "JENKINS_USER=$JENKINS_USER_ID" | tee -a .env
-sed -ie "s/\(^JENKINS_USER_API_TOKEN=\).*/\1$JENKINS_USER_PWD/" .env || echo "JENKINS_USER_API_TOKEN=$JENKINS_USER_PWD" | tee -a .env
+sed -ie "s/\(^JENKINS_USER_API_TOKEN=\).*/\1$JENKINS_USER_API_TOKEN/" .env || echo "JENKINS_USER_API_TOKEN=$JENKINS_USER_API_TOKEN" | tee -a .env
 
 sed -ie "s/\(^JOB_NAME=\).*/\1$JENKINS_PROJECT_NAME/" .env || echo "JOB_NAME=$JENKINS_PROJECT_NAME" | tee -a .env
 sed -ie "s/\(^REPO_NAME=\).*/\1$GITLAB_PROJECT_NAME/" .env || echo "REPO_NAME=$GITLAB_PROJECT_NAME" | tee -a .env
