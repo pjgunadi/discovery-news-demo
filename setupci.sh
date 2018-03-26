@@ -6,10 +6,10 @@ echo "1" | bx pr login -a $ICP_URL -u $ICP_USER -p $ICP_PWD --skip-ssl-validatio
 sleep 2
 bx pr cluster-config $CLUSTER_NAME
 
-#Create Secret
-echo "Create Kubernetes Secret in $TARGET_NAMESPACE namespace"
-kubectl -n $TARGET_NAMESPACE get secrets $K8_SECRET_NAME
-[ $? != 0 ] && kubectl -n $TARGET_NAMESPACE create secret docker-registry $K8_SECRET_NAME --docker-server=$REGISTRY_SERVER:$REGISTRY_PORT --docker-username=$DOCKER_REGISTRY_USER --docker-password=$DOCKER_REGISTRY_PASSWORD --docker-email=$DOCKER_REGISTRY_USER@$REGISTRY_SERVER
+#Setup Namespace
+./setup_namespace.sh "$GITLAB_NAMESPACE" "$K8_SECRET_NAME" "$REGISTRY_SERVER" "$REGISTRY_PORT" "$DOCKER_REGISTRY_USER" "$DOCKER_REGISTRY_PASSWORD"
+./setup_namespace.sh "$JENKINS_NAMESPACE" "$K8_SECRET_NAME" "$REGISTRY_SERVER" "$REGISTRY_PORT" "$DOCKER_REGISTRY_USER" "$DOCKER_REGISTRY_PASSWORD"
+./setup_namespace.sh "$TARGET_NAMESPACE" "$K8_SECRET_NAME" "$REGISTRY_SERVER" "$REGISTRY_PORT" "$DOCKER_REGISTRY_USER" "$DOCKER_REGISTRY_PASSWORD"
 
 #Get GitLab and Jenkins Port
 echo "Get Gitlab Deployment details"
