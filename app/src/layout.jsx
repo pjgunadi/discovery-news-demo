@@ -12,7 +12,7 @@ export default function Layout() {
         subBreadcrumbsUrl="https://discovery-news-demo.mybluemix.net"
       />
       <Jumbotron
-        serviceName="Discovery 1.1"
+        serviceName="Discovery 1.0"
         repository="https://github.com/watson-developer-cloud/discovery-nodejs"
         documentation="https://console.bluemix.net/docs/services/discovery/index.html"
         apiReference="http://www.ibm.com/watson/developercloud/discovery/api"
