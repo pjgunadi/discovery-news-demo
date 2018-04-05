@@ -30,10 +30,7 @@ Use shell script to deploy Gitlab and Jenkins. Jenkins system configuration shou
 2. Rename [sample.env.setupci](sample.env.setupci) to `.env.setupci` and update the variables
 3. If your not installed helm client or the version is not the same as the helm server in ICP, run this script: `install_helm.sh`
 4. If you have not deployed Jenkins and Gitlab chart, run this script: `install_gitlabce_jenkins.sh`
-5. Wait and verify the charts deployment until completed. You can use this command to check the status:
-```
-kubectl get pods -w
-```
+5. Wait and verify the charts deployment until all pods are READY. You can use this command to watch the pods: `kubectl get pods -w`
 6. Execute `setupci.sh`. In this script you will be prompted for gitlab credential. Enter the Gitlab username and password you defined in `.env.setupci`
 7. Configure Jenkins:
    - Login to Jenkins with url, username, and password printed from previous step
