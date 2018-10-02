@@ -4,14 +4,13 @@
 1. Install [Git Desktop](https://desktop.github.com/)
 2. Install [Visual Studio Code](https://code.visualstudio.com/)
 3. Java runtime
-4. Install ICP CLI:  
-   Version 3.1.0:
+4a. Install ICP CLI (Version 3.1.0):
    - Download ICP CLI, Kubectl CLI, and Helm from your ICP: `https://your-icp-master-node:8443/console/tools/cli`
    - Install the downloaded [ICP CLI](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.1.0/manage_cluster/install_cli.html)
    - Install the downloaded [Kubectl CLI](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.1.0/manage_cluster/cfc_cli.html)
    - Install the downloaded [Helm](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.1.0/app_center/create_helm_cli.html)
 
-   Version 2.1.0.3 or earlier:
+4b. Install ICP CLI (Version 2.1.0.3 or earlier):
    - [IBM Cloud CLI](https://console.bluemix.net/docs/cli/reference/bluemix_cli/all_versions.html)
    - Download ICP Plugin for IBM Cloud CLI: `https://your-icp-master-node:8443/console/tools/cli`
    - Install the downloaded [ICP Plugin for IBM Cloud CLI](https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0/manage_cluster/install_cli.html):

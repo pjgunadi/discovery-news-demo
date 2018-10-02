@@ -1,0 +1,14 @@
+apiVersion: securityenforcement.admission.cloud.ibm.com/v1beta1
+kind: ImagePolicy
+metadata:
+  name: discovery-news-demo-image-policy
+spec:
+ repositories:
+  - name: "docker.io/postgres:*"
+    policy:
+  - name: "docker.io/jenkins/jenkins:*"
+    policy:
+  - name: "docker.io/gitlab/gitlab-ce:*"
+    policy:
+  - name: "docker.io/bitnami/redis:*"
+    policy:

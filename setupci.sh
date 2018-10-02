@@ -2,9 +2,14 @@
 source .env.setupci
 
 #Login to ICP
-echo "1" | bx pr login -a $ICP_URL -u $ICP_USER -p $ICP_PWD --skip-ssl-validation
-sleep 2
-bx pr cluster-config $CLUSTER_NAME
+CLDCTL=`which cloudctl`
+if [ $? == 0 ]; then
+  cloudctl login -a $ICP_URL -u $ICP_USER -p $ICP_PWD -n $TARGET_NAMESPACE -c id-${CLUSTER_NAME}-account --skip-ssl-validation
+else
+  echo "1" | bx pr login -a $ICP_URL -u $ICP_USER -p $ICP_PWD --skip-ssl-validation
+  sleep 2
+  bx pr cluster-config $CLUSTER_NAME
+fi
 
 #Setup Namespace
 ./setup_namespace.sh "$GITLAB_NAMESPACE" "$K8_SECRET_NAME" "$REGISTRY_SERVER" "$REGISTRY_PORT" "$DOCKER_REGISTRY_USER" "$DOCKER_REGISTRY_PASSWORD"

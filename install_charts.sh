@@ -2,9 +2,14 @@
 source .env.setupci
 
 #Login to ICP
-echo "1" | bx pr login -a $ICP_URL -u $ICP_USER -p $ICP_PWD --skip-ssl-validation
-sleep 2
-bx pr cluster-config $CLUSTER_NAME
+CLDCTL=`which cloudctl`
+if [ $? == 0 ]; then
+  cloudctl login -a $ICP_URL -u $ICP_USER -p $ICP_PWD -n $TARGET_NAMESPACE -c id-${CLUSTER_NAME}-account --skip-ssl-validation
+else
+  echo "1" | bx pr login -a $ICP_URL -u $ICP_USER -p $ICP_PWD --skip-ssl-validation
+  sleep 2
+  bx pr cluster-config $CLUSTER_NAME
+fi
 
 #Check Helm Version
 TMPVER=$(kubectl -n kube-system get deploy tiller-deploy -o=jsonpath='{.spec.template.spec.containers[0].image}' | awk -F: '{print $2}')
@@ -75,6 +80,10 @@ if [ "$TLS_ENABLED" == "1" ]; then
     TLS_SUFFIX="--tls --tls-ca-cert $CA_CRT --tls-cert $TLS_CRT --tls-key $TLS_KEY"
   fi
 fi
+
+#Apply Image Policy
+#POLICIES=$(kubectl -n $TARGET_NAMESPACE get imagepolicies | awk 'FNR > 1 {print $1}')
+kubectl apply -n $TARGET_NAMESPACE -f image-policy.yaml
 
 #Install Gitlab and Jenkins Helm Chart
 if [ "$DELETE_EXISTING_CHART" == "1" ]; then

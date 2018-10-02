@@ -38,6 +38,10 @@ if [ "$TLS_ENABLED" == "1" ]; then
   fi
 fi
 
+#Apply Image Policy
+#POLICIES=$(kubectl -n $TARGET_NAMESPACE get imagepolicies | awk 'FNR > 1 {print $1}')
+kubectl apply -n $TARGET_NAMESPACE -f image-policy.yaml
+
 #Install Gitlab and Jenkins Helm Chart
 if [ "$DELETE_EXISTING_CHART" == "1" ]; then
   [ "$(helm list $GITLAB_HELM_RELEASE $TLS_SUFFIX)" != "" ] && helm delete $GITLAB_HELM_RELEASE --purge $TLS_SUFFIX
