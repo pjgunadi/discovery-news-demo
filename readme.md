@@ -4,7 +4,7 @@
 1. Install [Git Desktop](https://desktop.github.com/)
 2. Install [Visual Studio Code](https://code.visualstudio.com/)
 3. Java runtime
-4. Install ICP CLI:
+4. Install ICP CLI:  
    Version 3.1.0:
    - Download ICP CLI, Kubectl CLI, and Helm from your ICP: `https://your-icp-master-node:8443/console/tools/cli`
    - Install the downloaded [ICP CLI](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.1.0/manage_cluster/install_cli.html)
